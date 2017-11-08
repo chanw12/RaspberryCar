@@ -42,7 +42,7 @@ def lineTracing():
         elif OTD == 1 and OTB == 1 and OTA == 0 and OTC == 0 and OTE == 1:
             go_forward_diff(50, 45)
         elif OTD == 1 and OTB == 1 and OTA == 0 and OTC == 0 and OTE == 0:
-            go_forward_diff(50, 40)
+            go_forward_diff(50, 10)
         elif OTD == 1 and OTB == 1 and OTA == 1 and OTC == 0 and OTE == 0:
             go_forward_diff(50, 30)
         elif OTD == 1 and OTB == 1 and OTA == 1 and OTC == 1 and OTE == 0:
