@@ -15,15 +15,19 @@ def lineTracing():
     while True:
         output = get_DBACE()
         OTD, OTB, OTA, OTC, OTE = output[0], output[1] ,output[2], output[3], output[4]
+        go_forward_any(20)
+        if OTA == 1:
+            stop()
 
-        if OTD == 1 and OTE == 1 and (OTB == 0 or OTA == 0 or OTC == 0):  # Case1
-            go_forward_diff(50, 50)
-        elif OTC == 1 and OTE == 1:  # Case2
-            go_forward_diff(20, 50)
-        elif OTD == 1 and OTB == 1:  # Case3
-            go_forward_diff(50, 20)
-        else:
-            go_forward_diff(0, 0)
+
+        # if OTD == 1 and OTE == 1 and (OTB == 0 or OTA == 0 or OTC == 0):  # Case1
+        #     go_forward_diff(50, 50)
+        # elif OTC == 1 and OTE == 1:  # Case2
+        #     go_forward_diff(20, 50)
+        # elif OTD == 1 and OTB == 1:  # Case3
+        #     go_forward_diff(50, 20)
+        # else:
+        #     go_forward_diff(0, 0)
 
         # if OTD == 1 and OTB == 1 and OTA == 1 and OTC == 1 and OTE == 1: # 라인 이탈 (All White)
         #     go_forward_diff(0, 0)
