@@ -27,8 +27,6 @@ def lineTracing():
             go_forward_diff(0, 50)
         elif OTE == 0:
             go_forward_diff(50, 0)
-        else:
-            go_forward_diff(55, 0)
 
         # if OTD == 1 and OTB == 1 and OTA == 1 and OTC == 1 and OTE == 1: # 라인 이탈 (All White)
         #     go_forward_diff(50, 10)
