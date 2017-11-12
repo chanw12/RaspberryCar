@@ -17,14 +17,8 @@ def lineTracing():
         output = get_DBACE()
         OTD, OTB, OTA, OTC, OTE = output[0], output[1] ,output[2], output[3], output[4]
 
-        if OTB == 1 and OTA == 0 and OTC == 1:  # Case1 [x 1 0 1 x]
+        if OTB == 1 and OTA == 0 and OTC == 1:  # Case1
             go_forward_diff(30, 30)
-        elif OTD == 1 and OTE == 1:  # [1 x x x 1]
-            go_forward_diff(30, 30)
-        elif OTC == 1 and OTE == 1:  # [x x x 1 1]
-            go_forward_diff(5, 30)
-        elif OTD == 1 and OTB == 1:
-            go_forward_diff(30, 5)
         elif OTB == 0:  # Case2
             go_forward_diff(5, 50)
         elif OTC == 0:  # Case3
@@ -65,6 +59,7 @@ def lineTracing():
         # else:
         #     go_forward_diff(0, 0)
         #
+
         sleep(0.5)
 
 
