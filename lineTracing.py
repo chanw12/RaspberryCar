@@ -32,7 +32,7 @@ def lineTracing():
 
         # 라인 이탈 (All White)
         if OTD == 1 and OTB == 1 and OTA == 1 and OTC == 1 and OTE == 1:
-            go_forward_diff(0, 0)
+            go_forward_diff(30, 0)
         # 감지 불가 (All Black)
         elif OTD == 0 and OTB == 0 and OTA ==0 and OTC == 0 and OTE == 0:
             go_forward_diff(0, 0)
