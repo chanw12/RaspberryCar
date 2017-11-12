@@ -32,13 +32,13 @@ def lineTracing():
 
         # 라인 이탈 (All White)
         if OTD == 1 and OTB == 1 and OTA == 1 and OTC == 1 and OTE == 1:
-            go_forward_diff(50, 5)
+            go_forward_diff(80, 5)
         # 감지 불가 (All Black)
         elif OTD == 0 and OTB == 0 and OTA ==0 and OTC == 0 and OTE == 0:
             go_forward_diff(0, 0)
         # 중앙 감지
         elif OTD == 1 and OTB == 1 and OTA == 0 and OTC == 1 and OTE == 1:
-            go_forward_diff(30, 30)
+            go_forward_diff(40, 40)
         # 왼쪽으로 치우친 중앙 감지
         elif OTB == 0:
             go_forward_diff(25, 40)
