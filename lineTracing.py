@@ -30,35 +30,29 @@ def lineTracing():
         # elif OTE == 0:
         #     go_forward_diff(50, 0)
 
-        if OTD == 1 and OTB == 1 and OTA == 1 and OTC == 1 and OTE == 1: # 라인 이탈 (All White)
-            go_forward_diff(50, 10)
-        elif OTD == 0 and OTB == 0 and OTA ==0 and OTC == 0 and OTE == 0: # 감지 불가 (All Black)
+        # 라인 이탈 (All White)
+        if OTD == 1 and OTB == 1 and OTA == 1 and OTC == 1 and OTE == 1:
             go_forward_diff(0, 0)
+        # 감지 불가 (All Black)
+        elif OTD == 0 and OTB == 0 and OTA ==0 and OTC == 0 and OTE == 0:
+            go_forward_diff(0, 0)
+        # 중앙 감지
         elif OTD == 1 and OTB == 1 and OTA == 0 and OTC == 1 and OTE == 1:
             go_forward_diff(30, 30)
-        elif OTD == 0 and OTB == 1 and OTA == 1 and OTC == 1 and OTE == 1:
-            go_forward_diff(20, 50)
-        elif OTD == 0 and OTB == 0 and OTA == 1 and OTC == 1 and OTE == 1:
-            go_forward_diff(30, 50)
-        elif OTD == 0 and OTB == 0 and OTA == 0 and OTC == 1 and OTE == 1:
-            go_forward_diff(40, 50)
-        elif OTD == 1 and OTB == 0 and OTA == 0 and OTC == 1 and OTE == 1:
-            go_forward_diff(50, 45)
-        elif OTD == 1 and OTB == 1 and OTA == 0 and OTC == 0 and OTE == 1:
-            go_forward_diff(50, 45)
-        elif OTD == 1 and OTB == 1 and OTA == 0 and OTC == 0 and OTE == 0:
-            go_forward_diff(50, 10)
-        elif OTD == 1 and OTB == 1 and OTA == 1 and OTC == 0 and OTE == 0:
-            go_forward_diff(50, 30)
-        elif OTD == 1 and OTB == 1 and OTA == 1 and OTC == 1 and OTE == 0:
-            go_forward_diff(50, 20)
-        elif OTD == 1 and OTB == 1 and OTA == 1 and OTC == 0 and OTE == 1:
-            go_forward_diff(45, 50)
-        elif OTD == 1 and OTB == 0 and OTA == 1 and OTC == 1 and OTE == 1:
-            go_forward_diff(50, 45)
+        # 왼쪽으로 치우친 중앙 감지
+        elif OTB == 0:
+            go_forward_diff(25, 35)
+        # 오른쪽으로 치우친 중앙 감지
+        elif OTC == 0:
+            go_forward_diff(35, 25)
+        # 왼쪽으로 심하게 치우침
+        elif OTD == 0:
+            go_forward_diff(50, 5)
+        # 오른쪽으로 심하게 치우침
+        elif OTE == 0:
+            go_forward_diff(5, 50)
         else:
             go_forward_diff(0, 0)
-
 
         sleep(0.5)
 
