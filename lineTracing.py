@@ -45,7 +45,7 @@ def lineTracing():
         else:
             go_forward_diff(0, 0)
 
-        sleep(0.1)
+        #sleep(0.1)
 
 
 if __name__ == '__main__':
