@@ -15,20 +15,10 @@ def lineTracing():
 
     while True:
         output = get_DBACE()
+        dis = getDistance()
         OTD, OTB, OTA, OTC, OTE = output[0], output[1] ,output[2], output[3], output[4]
 
-        print(output)
-
-        # if OTB == 1 and OTA == 0 and OTC == 1:  # Case1
-        #     go_forward_diff(30, 30)
-        # elif OTB == 0:  # Case2
-        #     go_forward_diff(5, 50)
-        # elif OTC == 0:  # Case3
-        #     go_forward_diff(50, 5)
-        # elif OTD == 0:
-        #     go_forward_diff(0, 50)
-        # elif OTE == 0:
-        #     go_forward_diff(50, 0)
+        print(output, getDistance())
 
         # 라인 이탈 (All White)
         if OTD == 1 and OTB == 1 and OTA == 1 and OTC == 1 and OTE == 1:
