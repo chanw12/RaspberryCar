@@ -47,10 +47,10 @@ def lineTracing():
             go_forward_diff(35, 25)
         # 왼쪽으로 심하게 치우침
         elif OTD == 0:
-            go_forward_diff(5, 60)
+            go_forward_diff(5, 70)
         # 오른쪽으로 심하게 치우침
         elif OTE == 0:
-            go_forward_diff(60, 5)
+            go_forward_diff(70, 5)
         else:
             go_forward_diff(0, 0)
 
