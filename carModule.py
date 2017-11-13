@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 from time import sleep, time
 
 
-def default_settings():  # Must be called when you run car.
+def setup():  # Must be called when you run car.
     # OTD = Leftmost, OTB = Leftless, OTA = Center, OTC = Rightless, OTE = Rightmost
     global MotorLeft_A, MotorLeft_B, MotorLeft_PWM, MotorRight_A, MotorRight_B, MotorRight_PWM, LeftPwm, RightPwm
     global trig, echo, OTD, OTB, OTA, OTC, OTE
@@ -184,10 +184,10 @@ def getDistance():
     distance = round(distance,2)
     return distance
 
-def getDistance_start():
+def getDistance1():
     GPIO.output(trig, False)
 
-def getDistance_end():
+def getDistance2():
     GPIO.output(trig, True)
     sleep(0.00001)
     GPIO.output(trig, False)
@@ -197,9 +197,9 @@ def getDistance_end():
     while GPIO.input(echo) == 1:
         pulse_end = time()
     pulse_duration = pulse_end - pulse_start
-    dis = pulse_duration * 17000
-    dis = round(dis, 2)
-    return dis
+    distance = pulse_duration * 17000
+    distance = round(distance, 2)
+    return distance
 
 
 def get_DBACE():
@@ -212,7 +212,7 @@ def get_DBACE():
 if __name__ == '__main__':
     # Test Tracking Module
     try:
-        default_settings()
+        setup()
         while True:
             print("leftmostled  detects black line(0) or white ground(1): " + str(GPIO.input(OTD)))
             print("leftlessled  detects black line(0) or white ground(1): " + str(GPIO.input(OTB)))
