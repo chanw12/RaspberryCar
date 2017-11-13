@@ -14,9 +14,10 @@ from carModule import *
 def lineTracing():
     while True:
         output = get_DBACE()
+        dis = getDistance()
         OTD, OTB, OTA, OTC, OTE = output[0], output[1] ,output[2], output[3], output[4]
 
-        print(output)
+        print(output, dis)
 
         # 라인 이탈 (All White)
         if OTD == 1 and OTB == 1 and OTA == 1 and OTC == 1 and OTE == 1:
