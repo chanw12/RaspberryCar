@@ -1,4 +1,6 @@
 from carModule import *
+import multiprocessing as mp
+
 
 # =======================================
 # Base Algorithm (Black is 0, White is 1, x is 'don't care')
@@ -10,11 +12,15 @@ from carModule import *
 # Case3: Go Right
 # 1 1 x x x (1 1 0 0 0, 1 1 1 1 0)
 
+class RCarStatus:
+    dis = mp.Value('d',999.9)
+
 
 def lineTracing():
     while True:
         output = get_DBACE()
-        dis = getDistance()
+        #dis = getDistance()
+        dis = RCarStatus.dis.value
         OTD, OTB, OTA, OTC, OTE = output[0], output[1], output[2], output[3], output[4]
 
         print(output, dis)
@@ -43,9 +49,16 @@ def lineTracing():
         else:
             go_forward_diff(0, 0)
 
-
+        sleep(0.001)
 
 if __name__ == '__main__':
+    def set_distance():
+        default_settings()
+        while True:
+            RCarStatus.dis.value = getDistance()
+
+    mp.Process(target=set_distance).start()
+
     try:
         default_settings()
         lineTracing()
