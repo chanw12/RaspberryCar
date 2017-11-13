@@ -35,7 +35,7 @@ def lineTracing():
             current_dis = getDistance_end()
             start_time = 0
 
-        print(output)
+        print(output, current_dis)
 
         # 라인 이탈 (All White)
         if OTD == 1 and OTB == 1 and OTA == 1 and OTC == 1 and OTE == 1:
