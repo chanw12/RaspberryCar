@@ -1,4 +1,5 @@
 from carModule import *
+import time
 
 # =======================================
 # Base Algorithm (Black is 0, White is 1, x is 'don't care')
@@ -12,10 +13,28 @@ from carModule import *
 
 
 def lineTracing():
+    current_dis = 100
+    standard_dis = 40
+    start_time = 0
 
     while True:
         output = get_DBACE()
         OTD, OTB, OTA, OTC, OTE = output[0], output[1] ,output[2], output[3], output[4]
+
+        if current_dis <= standard_dis:
+            turn_time = 0.3
+            move(70, 0, turn_time)
+            move(20, 60)
+            while OTA == 1:
+                continue
+            current_dis = 100
+        # =============== getDistance ===============
+        if start_time == 0:
+            start_time = time.time()
+            getDistance_start()
+        if time.time() - start_time >= 0.5:
+            current_dis = getDistance_end()
+            start_time = 0
 
         print(output)
 
@@ -43,7 +62,15 @@ def lineTracing():
         else:
             go_forward_diff(0, 0)
 
-        sleep(0.1)
+        sleep(0.05)
+
+
+def avoid():
+    #turn_time = 0.3
+    go_forward_diff(70, 0)
+    move(20, 60)
+    while OTA == 1:
+        continue
 
 
 if __name__ == '__main__':

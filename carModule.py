@@ -124,6 +124,14 @@ def pwm_low():  # When occur KeyboardInterrupt
     RightPwm.ChangeDutyCycle(0)
     GPIO.cleanup()
 
+def move(leftspd, rightspd, t=0):
+    leftmotor(leftspd)
+    rightmotor(rightspd)
+
+    if t > 0:
+        time.sleep(t)
+        stop()
+
 # =============================
 # get TurnModule.py
 # =============================
@@ -183,6 +191,23 @@ def getDistance():
     distance = pulse_duration*17000
     distance = round(distance,2)
     return distance
+
+def getDistance_start():
+    GPIO.output(trig, False)
+
+def getDistance_end():
+    GPIO.output(trig, True)
+    time.sleep(0.00001)
+    GPIO.output(trig, False)
+
+    while GPIO.input(echo) == 0:
+        pulse_start = time.time()
+    while GPIO.input(echo) == 1:
+        pulse_end = time.time()
+    pulse_duration = pulse_end - pulse_start
+    dis = pulse_duration * 17000
+    dis = round(dis, 2)
+    return dis
 
 
 def get_DBACE():
