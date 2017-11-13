@@ -23,11 +23,12 @@ def lineTracing():
 
         if current_dis <= standard_dis:
             print("HI")
-            stop()
-            sleep(1)
-            go_forward_diff(70, 0)
+            go_forward_diff(90, 0)
             sleep(0.3)
-            go_forward_diff(20, 60)
+            go_forward(50, 2)
+            go_forward_diff(0, 90)
+            sleep(0.3)
+            go_forward(50, 2)
             while get_DBACE()[2] == 1:
                 continue
             current_dis = 100
