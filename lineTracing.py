@@ -1,6 +1,4 @@
 from carModule import *
-import multiprocessing as mp
-
 
 # =======================================
 # Base Algorithm (Black is 0, White is 1, x is 'don't care')
@@ -12,35 +10,29 @@ import multiprocessing as mp
 # Case3: Go Right
 # 1 1 x x x (1 1 0 0 0, 1 1 1 1 0)
 
-class RCarStatus:
-    dis = mp.Value('d',999.9)
-    outputs = mp.Array('i',5)
-
 
 def lineTracing():
     while True:
-        output = RCarStatus.outputs()
-        #dis = getDistance()
-        dis = RCarStatus.dis.value
-        OTD, OTB, OTA, OTC, OTE = output[0], output[1], output[2], output[3], output[4]
+        output = get_DBACE()
+        OTD, OTB, OTA, OTC, OTE = output[0], output[1] ,output[2], output[3], output[4]
 
-        print(output, dis)
+        print(output)
 
         # 라인 이탈 (All White)
         if OTD == 1 and OTB == 1 and OTA == 1 and OTC == 1 and OTE == 1:
             go_forward_diff(90, 5)
         # 감지 불가 (All Black)
-        elif OTD == 0 and OTB == 0 and OTA == 0 and OTC == 0 and OTE == 0:
+        elif OTD == 0 and OTB == 0 and OTA ==0 and OTC == 0 and OTE == 0:
             go_forward_diff(0, 0)
         # 중앙 감지
         elif OTD == 1 and OTB == 1 and OTA == 0 and OTC == 1 and OTE == 1:
-            go_forward_diff(100, 100)
+            go_forward_diff(45, 45)
         # 왼쪽으로 치우친 중앙 감지
         elif OTB == 0:
-            go_forward_diff(10, 80)
+            go_forward_diff(20, 55)
         # 오른쪽으로 치우친 중앙 감지
         elif OTC == 0:
-            go_forward_diff(80, 10)
+            go_forward_diff(55, 20)
         # 왼쪽으로 심하게 치우침
         elif OTD == 0:
             go_forward_diff(5, 90)
@@ -50,23 +42,8 @@ def lineTracing():
         else:
             go_forward_diff(0, 0)
 
-        sleep(0.001)
 
 if __name__ == '__main__':
-    def set_distance():
-        default_settings()
-        while True:
-            RCarStatus.dis.value = getDistance()
-
-    def set_outputs():
-        default_settings()
-        while True:
-            for i, val in enumerate(get_DBACE()):
-                RCarStatus.outputs[i] = val
-
-    mp.Process(target=set_distance).start()
-    mp.Process(target=set_outputs).start()
-
     try:
         default_settings()
         lineTracing()

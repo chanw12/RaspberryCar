@@ -169,10 +169,9 @@ def leftPointTurn(speed, running_time):
 # get ultraModule.py
 # =============================
 
-
 def getDistance():
     GPIO.output(trig,False)
-    sleep(0.1)
+    sleep(0.01)
     GPIO.output(trig,True)
     sleep(0.00001)
     GPIO.output(trig,False)
