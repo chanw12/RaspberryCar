@@ -23,6 +23,8 @@ def lineTracing():
 
         if current_dis <= standard_dis:
             print("HI")
+            stop()
+            sleep(1)
             go_forward_diff(70, 0)
             sleep(0.3)
             go_forward_diff(20, 60)
