@@ -59,6 +59,7 @@ if __name__ == '__main__':
             RCarStatus.dis.value = getDistance()
 
     def set_outputs():
+        default_settings()
         while True:
             for i, val in enumerate(get_DBACE()):
                 RCarStatus.outputs[i] = val
