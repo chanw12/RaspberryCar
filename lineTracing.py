@@ -12,9 +12,9 @@ from carModule import *
 
 
 def lineTracing():
+
     while True:
         output = get_DBACE()
-        #dis = getDistance()
         OTD, OTB, OTA, OTC, OTE = output[0], output[1] ,output[2], output[3], output[4]
 
         print(output)
@@ -27,13 +27,13 @@ def lineTracing():
             go_forward_diff(0, 0)
         # 중앙 감지
         elif OTD == 1 and OTB == 1 and OTA == 0 and OTC == 1 and OTE == 1:
-            go_forward_diff(90, 90)
+            go_forward_diff(45, 45)
         # 왼쪽으로 치우친 중앙 감지
         elif OTB == 0:
-            go_forward_diff(20, 80)
+            go_forward_diff(20, 55)
         # 오른쪽으로 치우친 중앙 감지
         elif OTC == 0:
-            go_forward_diff(80, 20)
+            go_forward_diff(55, 20)
         # 왼쪽으로 심하게 치우침
         elif OTD == 0:
             go_forward_diff(5, 90)
