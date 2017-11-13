@@ -33,13 +33,13 @@ def lineTracing():
             go_forward_diff(0, 0)
         # 중앙 감지
         elif OTD == 1 and OTB == 1 and OTA == 0 and OTC == 1 and OTE == 1:
-            go_forward_diff(45, 45)
+            go_forward_diff(100, 100)
         # 왼쪽으로 치우친 중앙 감지
         elif OTB == 0:
-            go_forward_diff(20, 55)
+            go_forward_diff(10, 80)
         # 오른쪽으로 치우친 중앙 감지
         elif OTC == 0:
-            go_forward_diff(55, 20)
+            go_forward_diff(80, 10)
         # 왼쪽으로 심하게 치우침
         elif OTD == 0:
             go_forward_diff(5, 90)
