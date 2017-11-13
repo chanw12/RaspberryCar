@@ -14,11 +14,12 @@ import multiprocessing as mp
 
 class RCarStatus:
     dis = mp.Value('d',999.9)
+    outputs = mp.Array('i',5)
 
 
 def lineTracing():
     while True:
-        output = get_DBACE()
+        output = RCarStatus.outputs()
         #dis = getDistance()
         dis = RCarStatus.dis.value
         OTD, OTB, OTA, OTC, OTE = output[0], output[1], output[2], output[3], output[4]
@@ -57,7 +58,13 @@ if __name__ == '__main__':
         while True:
             RCarStatus.dis.value = getDistance()
 
+    def set_outputs():
+        while True:
+            for i, val in enumerate(get_DBACE()):
+                RCarStatus.outputs[i] = val
+
     mp.Process(target=set_distance).start()
+    mp.Process(target=set_outputs).start()
 
     try:
         default_settings()
