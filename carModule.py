@@ -124,14 +124,6 @@ def pwm_low():  # When occur KeyboardInterrupt
     RightPwm.ChangeDutyCycle(0)
     GPIO.cleanup()
 
-def move(leftspd, rightspd, t=0):
-    leftmotor(leftspd)
-    rightmotor(rightspd)
-
-    if t > 0:
-        sleep(t)
-        stop()
-
 # =============================
 # get TurnModule.py
 # =============================

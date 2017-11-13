@@ -22,9 +22,8 @@ def lineTracing():
         OTD, OTB, OTA, OTC, OTE = output[0], output[1] ,output[2], output[3], output[4]
 
         if current_dis <= standard_dis:
-            turn_time = 0.3
-            move(70, 0, turn_time)
-            move(20, 60)
+            go_forward_diff(70, 0)
+            sleep(0.3)
             while OTA == 1:
                 continue
             current_dis = 100
@@ -65,12 +64,12 @@ def lineTracing():
         sleep(0.05)
 
 
-def avoid():
-    #turn_time = 0.3
-    go_forward_diff(70, 0)
-    move(20, 60)
-    while OTA == 1:
-        continue
+# def avoid():
+#     #turn_time = 0.3
+#     go_forward_diff(70, 0)
+#     move(20, 60)
+#     while OTA == 1:
+#         continue
 
 
 if __name__ == '__main__':
