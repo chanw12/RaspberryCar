@@ -22,8 +22,10 @@ def lineTracing():
         OTD, OTB, OTA, OTC, OTE = output[0], output[1] ,output[2], output[3], output[4]
 
         if current_dis <= standard_dis:
+            print("HI")
             go_forward_diff(70, 0)
             sleep(0.3)
+            go_forward_diff(20, 60)
             while OTA == 1:
                 continue
             current_dis = 100
