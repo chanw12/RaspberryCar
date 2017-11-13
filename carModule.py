@@ -197,7 +197,7 @@ def getDistance_start():
 
 def getDistance_end():
     GPIO.output(trig, True)
-    time.sleep(0.00001)
+    sleep(0.00001)
     GPIO.output(trig, False)
 
     while GPIO.input(echo) == 0:
